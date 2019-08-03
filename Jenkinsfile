@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage ('Compile Stage') {
-
+            git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
             steps {
                 withMaven(maven : 'maven_3_6_1') {
                     sh 'mvn clean compile'
