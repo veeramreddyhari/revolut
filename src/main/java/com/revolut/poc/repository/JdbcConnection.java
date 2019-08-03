@@ -22,7 +22,7 @@ public class JdbcConnection {
 
         Connection con = null;
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/revolut", "admin", "admin123!!!");
+        con = DriverManager.getConnection("jdbc:mysql://revolut.cuksm5goronx.us-east-1.rds.amazonaws.com:3306/revolut", "admin", "admin123!!!");
         return con;
 
     }
