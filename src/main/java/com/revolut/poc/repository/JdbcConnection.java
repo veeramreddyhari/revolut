@@ -21,7 +21,7 @@ public class JdbcConnection {
     static Connection getConnection() throws ClassNotFoundException, SQLException {
 
         Connection con = null;
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://revolut.cuksm5goronx.us-east-1.rds.amazonaws.com:3306/revolut", "admin", "admin123!!!");
         return con;
 
