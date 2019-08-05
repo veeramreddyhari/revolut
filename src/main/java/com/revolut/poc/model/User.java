@@ -41,14 +41,23 @@ public class User implements Serializable {
         this.dob = dob;
     }
 
-    public User(String name, Date dob) {
+    public User(Integer id, String name, Date dob) {
         super();
         this.name = name;
         this.dob = dob;
+        this.id = id;
     }
 
     public User() {
         super();
     }
 
+    @Override
+    public String toString() {
+        return "User {" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", dob = " + dob +
+                '}';
+    }
 }
