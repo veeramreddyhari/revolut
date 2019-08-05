@@ -23,6 +23,8 @@
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.8.3" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-xc:1.8.3" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.6" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.6.1" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.6.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

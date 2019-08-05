@@ -32,3 +32,8 @@ target/
 .idea/dataSources.local.xml
 .idea/dataSources.xml
 .idea/dataSources/
+/.idea/libraries/Maven__junit_junit_4_12.xml
+/.idea/artifacts/helloworld_war_exploded.xml
+/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_6_1.xml
+/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_6_1.xml
+/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml

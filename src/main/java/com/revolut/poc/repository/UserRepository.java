@@ -1,6 +1,8 @@
 package com.revolut.poc.repository;
 
 import com.revolut.poc.model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,12 +11,15 @@ import java.sql.SQLException;
 
 public class UserRepository {
 
+    private static final Logger logger = LogManager.getLogger(UserRepository.class.getName());
+
     private JdbcConnection jdbcConnection;
     private Connection connection = null;
 
     private PreparedStatement preparedStatement = null;
 
     public void persistUser(User user) {
+        logger.info(String.format("persistUser behaviour Started"));
         try {
 
             connection = jdbcConnection.getConnection();
@@ -22,9 +27,10 @@ public class UserRepository {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setDate(2, user.getDob());
             preparedStatement.executeUpdate();
-
+            logger.info(String.format("persistUser behaviour completed"));
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error(String.format("Exception raised in persistUser Behaviour Started",e.getMessage()));
         } finally {
             if (preparedStatement != null) {
                 try {
@@ -44,6 +50,8 @@ public class UserRepository {
     }
 
     public User get(String name) {
+
+        logger.info(String.format("get behaviour Started"));
         ResultSet resultSet = null;
         User user = null;
         try {
@@ -60,8 +68,10 @@ public class UserRepository {
                     user.setDob(resultSet.getDate(3));
                 }
             }
+            logger.info(String.format("persistUser behaviour completed"));
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error(String.format("Exception raised in get behaviour ",e.getMessage()));
         } finally {
             if (preparedStatement != null) {
                 try {
@@ -83,6 +93,7 @@ public class UserRepository {
     }
 
     public void updateUser(User user, Integer id) {
+        logger.info(String.format("updateUser behaviour Started",user));
         try {
 
             connection = jdbcConnection.getConnection();
@@ -90,9 +101,11 @@ public class UserRepository {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setDate(2, user.getDob());
             preparedStatement.executeUpdate();
+            logger.info(String.format("updateUser behaviour completed",user));
 
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error(String.format("Exception raised in updateUser behaviour ",e.getMessage()));
         } finally {
             if (preparedStatement != null) {
                 try {
