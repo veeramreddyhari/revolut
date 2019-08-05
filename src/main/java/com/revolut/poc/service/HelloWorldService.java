@@ -27,6 +27,7 @@ public class HelloWorldService {
     @Consumes("application/json")
     @Produces(MediaType.APPLICATION_JSON)
     public Response persistUser(@PathParam("name") String name, User user) {
+        logger.info(String.format("persistUser behaviour started"));
         User oldUser = null;
         String message = null;
         try {
@@ -49,6 +50,7 @@ public class HelloWorldService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        logger.info(String.format("persistUser behaviour completed"));
         return Response.ok().entity(message).type("text/plain").build();
     }
 
