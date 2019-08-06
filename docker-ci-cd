@@ -1,7 +1,7 @@
 node{
 
    stage('SCM Checkout'){
-       git credentialsId: 'git-creds', url: 'https://github.com/javahometech/my-app'
+       git credentialsId: 'git-creds', url: 'https://github.com/veeramreddy/helloworld'
    }
 
    stage('Mvn Package'){
@@ -22,7 +22,7 @@ node{
    }
 
    stage('Run Container on Dev Server'){
-     def dockerRun = 'docker run -p 8080:8080 -d --name my-app veeramreddy/my-app:2.0.0'
+     def dockerRun = 'docker run -p 8080:8080 -d --name my-app veeramreddy/veeramreddy:2.0.0'
      sshagent(['dev-server']) {
        sh "ssh -o StrictHostKeyChecking=no hari@172.31.18.198 ${dockerRun}"
      }
